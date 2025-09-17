@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h2>Informations sur le medecin</h2>
+<ul>
+  <li>Nom et prenom : {{ doctor.name }}</li>
+ <li>Speciality : {{ doctor.speciality }}</li>
+ <li>Actif : {{ doctor.active }}</li>
+</ul>
+
+{% endblock %}

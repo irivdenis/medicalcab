@@ -1,0 +1,92 @@
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render,redirect
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.renderers import TemplateHTMLRenderer
+from rest_framework.response import Response
+from django.http import HttpResponse
+from cabinet.models import Doctor, Schedule, Appointment
+from cabinet.forms import DoctorForm,AppointmentForm,ScheduleForm
+
+def doctor_list(request):
+    doctors = Doctor.objects.all()
+    return render(request, 'cabinet/all_doctors.html',
+                  {'doctors':doctors})
+def schedule_list(request):
+    items = Schedule.objects.all()
+    return render(request, 'cabinet/all_schedules.html',
+                  {'items':items})
+def appointment_list(request):
+    items = Appointment.objects.all()
+    return render(request, 'cabinet/all_appointments.html',
+                  {'items':items})
+                  
+                  
+@login_required
+def doctor_detail(request, id):  
+   doctor=Doctor.objects.get(id=id)
+   return render(request,
+          'cabinet/detail_doctor.html',
+            {'doctor':doctor}) # nous passons l'id au modèle 
+
+def schedule_detail(request, id):  
+   item=Schedule.objects.get(id=id)
+   return render(request,
+          'cabinet/detail_schedule.html',
+            {'item':item}) # nous passons l'id au modèle 
+
+@login_required
+def home(request):
+    return render(request, 'cabinet/home.html')
+    
+def addnew_doctor(request):
+    form = DoctorForm()
+      
+    if request.method == 'POST':
+        form = DoctorForm(request.POST)
+        if form.is_valid():
+
+            doctor = form.save()
+
+            return redirect('doctors-list')
+
+        else:
+            form = DoctorForm()
+            
+    return render(request, 'cabinet/newdoctor.html',{'form': form})
+    
+def addnew_schedule(request):
+    form = ScheduleForm()
+      
+    if request.method == 'POST':
+        form = ScheduleForm(request.POST)
+        if form.is_valid():
+
+            schedule = form.save()
+
+            return redirect('schedules-list')
+
+        else:
+            form = ScheduleForm()
+            
+    return render(request, 'cabinet/newschedule.html',{'form': form})
+    
+def page1(request):
+    if request.method=="GET":
+        return HttpResponse ("<h2>La page n'est pas disponible , contactez l'administrateur<h2>")
+    
+def addnew_appointment(request):
+    form = AppointmentForm()
+      
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+
+            appointment = form.save()
+
+            return redirect('appointments-list')
+
+        else:
+            form = AppointmentForm()
+            
+    return render(request, 'cabinet/newappointment.html',{'form': form})

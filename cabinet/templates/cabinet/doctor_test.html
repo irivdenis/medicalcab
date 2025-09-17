@@ -1,0 +1,24 @@
+{% extends 'medcabinet/templates/base.html' %}
+{% load rest_framework %}
+{% block content %}
+<h1>All Doctors</h1>
+    <table>
+     <tr>
+          <th>Doctor_Id </th>
+          <th>Name </th>
+          <th>Speciality </th>
+        </tr>
+        {% for doctor in doctors %}
+       
+        <tr>
+          <td><a href="/doctor/{{ doctor.id }}">{{ doctor.id }} </td>
+          <td>{{ doctor.name }}</td>
+          <td>{{ doctor.speciality }}</td>
+
+        </tr>
+        {% empty %}
+            <li>No items found.</li>
+        {% endfor %}
+    </table>
+    
+{% endblock %}

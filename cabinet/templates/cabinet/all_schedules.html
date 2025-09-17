@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <title>Schedule List</title>
+</head>
+<body>
+    <h1>All Schedules</h1>
+    <table>
+     <tr>
+          <th>Name </th>
+          <th>Day of duty </th>
+          <th>Hour </th>
+          <th>Action </th>
+        </tr>
+        {% for schedule in schedules %}
+       
+        <tr>     
+          <td>{{ schedule.doctor.name }}</td>
+          <td>{{ schedule.day_ofduty }} </td>
+          <td>{{ schedule.from_hour  }}</td>
+          <td><a href="/schedule/{{ schedule.id }}/">Details<td>
+
+        </tr>
+        {% empty %}
+            <li>No items found.</li>
+        {% endfor %}
+    </table>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% load rest_framework %}
+
+<html><body>
+
+<h1>Schedule by  - {{ schedule.doctor.name }}</h1>
+
+
+<form action="{% url 'schedule-detail' id=schedule.id %}" method="POST">
+    {% csrf_token %}
+    {% render_form serializer %}
+    <input type="submit" value="Save">
+</form>
+<a href="../"> All Schedules</a>
+</body></html>

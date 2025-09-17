@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>All Schedules</h1>
+    <table>
+     <tr>
+          <th>Patient Name </th>
+          <th>Gender</th>
+          <th>Payment </th>
+          <th>Action </th>
+        </tr>
+        {% for appointment in appointments %}
+       
+        <tr>     
+          <td>{{ appointment.patient_name }}</td>
+          <td>{{ appointment.gender }} </td>
+          <td>{{ appointment.price  }}</td>
+          <td><a href="../appointment/{{ appointment.id }}">Details<td>
+
+        </tr>
+        {% empty %}
+            <li>No items found.</li>
+        {% endfor %}
+    </table>
+    
+{% endblock %}

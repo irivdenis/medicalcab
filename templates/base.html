@@ -1,0 +1,63 @@
+<! templates/base.html -->
+<html>
+    <head>
+        <title>MEDICAL CABINET</title>
+        <style>
+h1 {
+  color: blue;
+  font-family: verdana;
+  font-size: 300%;
+}
+p {
+  color: red;
+  font-family: courier;
+  font-size: 160%;
+}
+ ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    /* Appliquer des styles pour la balise <nav> */
+    nav {
+        background-color: #333;
+        text-align: center;
+    }
+
+    /* Créer un menu horizontal */
+    nav ul li {
+        display: inline-block;
+    }
+
+    /* Appliquer des styles pour les liens */
+    nav ul li a {
+        display: inline-block;
+        padding: 10px 20px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* Changer la couleur du lien lors du survol */
+    nav ul li a:hover {
+        background-color: #555;
+    }
+</style>
+    </head>
+
+    <body>
+        <nav>
+        <ul>
+            <li><a href="http://127.0.0.1:8000/home/">Accueil</a></li>
+            <li><a href="http://127.0.0.1:8000/allschedules/"> Rendez-vous</a></li> 
+            <li><a href="http://127.0.0.1:8000/alldoctors/"> Services & Médecins Consultants</a></li>                
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">À propos</a></li>
+        </ul>
+    </nav>
+        <h1>MEDICAL CABINET</h1>
+        {% block content %} {% endblock content %}
+
+    </body>
+
+</html>

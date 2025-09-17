@@ -1,0 +1,15 @@
+{% load rest_framework %}
+
+<html><body>
+<a href="{% url 'doctor-list' %}"> Doctors</a>
+<a href="{% url 'schedule-list' %}"> Schedules</a>
+<a href="{% url 'appointment-list' %}"> Appointments</a>
+<h1>Appointment  - {{ appointment.patient_name }}</h1>
+
+
+<form action="{% url 'appointment-detail' id=appointment.id %}" method="post">
+    {% csrf_token %}
+    {% render_form serializer %}
+    <input type="submit" value="Save">
+</form>
+</body></html>
