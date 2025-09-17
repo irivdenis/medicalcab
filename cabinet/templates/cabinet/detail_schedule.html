@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h2>Schedule [Detail]</h2>
+<table border="1">
+  <tr> <td>Medecin<td> {{ schedule.doctor }}</tr>
+ <tr> <td>Day of duty <td>{{ schedule.day_ofduty }}</tr>
+ <tr><td>Begining Hour<td> {{ schedule.from_hour }}</tr>
+</table>
+
+{% endblock %}

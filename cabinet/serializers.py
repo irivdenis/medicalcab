@@ -47,6 +47,6 @@ class AppointmentListSerializer(serializers.ModelSerializer):
     date_updated=serializers.DateTimeField(format="%A %Y-%m-%d %H:%M:%S")
     class Meta:
         model = Appointment
-        fields = ['id', 'date_created', 'date_updated', 'patient_name', 'price', 'schedule']
+        fields = ['id', 'date_created', 'appoint_date', 'patient_name', 'price', 'schedule']
 
 

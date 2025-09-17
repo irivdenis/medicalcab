@@ -30,10 +30,16 @@ def doctor_detail(request, id):
             {'doctor':doctor}) # nous passons l'id au modèle 
 
 def schedule_detail(request, id):  
-   item=Schedule.objects.get(id=id)
+   schedule=Schedule.objects.get(id=id)
    return render(request,
           'cabinet/detail_schedule.html',
-            {'item':item}) # nous passons l'id au modèle 
+            {'schedule':schedule}) # nous passons l'id au modèle 
+
+def appointment_detail(request, id):  
+   appointment=Appointment.objects.get(id=id)
+   return render(request,
+          'cabinet/detail_appointment.html',
+            {'appointment':appointment}) # nous passons l'id au modèle 
 
 @login_required
 def home(request):
