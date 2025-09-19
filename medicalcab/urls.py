@@ -38,7 +38,10 @@ urlpatterns = [
     path('alldoctors/', cabinet.views.doctor_list, name='doctors-list'),
     path('allschedules/', cabinet.views.schedule_list, name='schedules-list'),
     path('allappointments/', cabinet.views.appointment_list, name='appointments-list'),
-    path('doctor/<int:id>/',cabinet.views.doctor_detail , name='doctor-detail'),
-    path('schedule/<int:id>/',cabinet.views.schedule_detail , name='schedule-detail'),
-    path('appointment/<int:id>/',cabinet.views.appointment_detail , name='appointment-detail'),
+    path('doctor/detail/<int:id>/',cabinet.views.doctor_detail , name='doctor-detail'),
+    path('schedule/detail/<int:id>/',cabinet.views.schedule_detail , name='schedule-detail'),
+    path('appointment/detail/<int:id>/',cabinet.views.appointment_detail , name='appointment-detail'),
+    path('doctor/update/<int:id>/',cabinet.views.update_doctor , name='doctor-update'),
+    path('appointment/update/<int:id>/',cabinet.views.update_appointment , name='appointment-update'),
+    path('schedule/update/<int:id>/',cabinet.views.update_schedule , name='schedule-update'),
 ]

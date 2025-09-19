@@ -1,8 +1,7 @@
-
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Detail the Schedule </h1>
+<h1>Detail the Appointment </h1>
 <form method="POST">
     {% csrf_token %}
   {{ form.as_p }}
