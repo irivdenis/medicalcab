@@ -1,8 +1,15 @@
+<form action="" method="Post">
+ <! {% url 'doctor-detail' band.id %}->
+  <button type="submit" value="Submit">Ajouter</button>
+  <button type="reset" value="Reset">Reset</button>
+    </form> 
 {% extends 'base.html' %}
 
 
 {% block content %}
+    
     <h1>All Schedules</h1>
+ 
     <table>
      <tr>
           <th>Patient Name </th>
@@ -16,7 +23,7 @@
           <td>{{ appointment.patient_name }}</td>
           <td>{{ appointment.gender }} </td>
           <td>{{ appointment.price  }}</td>
-          <td><a href="../appointment/{{ appointment.id }}">Details<td>
+          <td><a href="../appointment/detail/{{ appointment.id }}">Details<td>
 
         </tr>
         {% empty %}
@@ -25,3 +32,4 @@
     </table>
     
 {% endblock %}
+
