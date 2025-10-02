@@ -48,14 +48,15 @@ p {
     <body>
         <nav>
         <ul>
-            <li><a href="http://127.0.0.1:8000/home/">Accueil</a></li>
-            <li><a href="http://127.0.0.1:8000/allschedules/"> Rendez-vous</a></li> 
-            <li><a href="http://127.0.0.1:8000/alldoctors/"> Services & Médecins Consultants</a></li>                
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">À propos</a></li>
+            <li><a href="http://127.0.0.1:8000/home/">ACCUEIL</a></li>
+            <li><a href="http://127.0.0.1:8000/allschedules/"> RENDEZ-VOUS </a></li> 
+            <li><a href="http://127.0.0.1:8000/alldoctors/"> VOIR MEDECINS </a></li>                
+            <li><a href="{% url 'signup' %}">  NOUVEAU UTILISATEUR</a></li>
+            <li><a href="{% url 'logout' %}"> SE DECONNCETER</a></li>
         </ul>
     </nav>
-        <h1>MEDICAL CABINET</h1>
+        <h1>MEDICAL CABINET</h1>     
+        
         {% block content %} {% endblock content %}
 
     </body>

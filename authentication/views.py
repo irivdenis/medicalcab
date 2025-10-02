@@ -1,13 +1,11 @@
 from django.shortcuts import render,redirect
-
 # Create your views here.
 # authentication/views.py
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-from .  import forms
 from django.views.generic import View
-
+from authentication import forms
 
 def login_page(request):
     form = forms.LoginForm()
@@ -46,4 +44,4 @@ def signup_page(request):
             return redirect(settings.LOGIN_REDIRECT_URL)
 
     return render(request, 'authentication/signup.html', context={'form': form})
-    
+                
